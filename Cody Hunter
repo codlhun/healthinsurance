@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACA Marketplace Insurance Plans</title>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>$0 per Month ACA Marketplace Insurance Plans + Extra Benefits</h1>
+        <p class="additional-benefits">Additional benefits include up to $1000 to help with gas, groceries, bills, and other health-related needs.</p>
+        <form id="insuranceForm">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="household">Number of Taxable Household Members:</label>
+            <input type="number" id="household" name="household" required>
+            
+            <label for="income">Estimated Income for 2024:</label>
+            <input type="number" id="income" name="income" required>
+            
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Visuals -->
+        <div class="visuals">
+            <!-- Your images here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("insuranceForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            var formData = {
+                phone: document.getElementById("phone").value,
+                zipcode: document.getElementById("zipcode").value,
+                age: document.getElementById("age").value,
+                household: document.getElementById("household").value,
+                income: document.getElementById("income").value
+            };
+
+            // Retrieve existing submissions or initialize an empty array
+            var submissions = JSON.parse(localStorage.getItem("insuranceFormSubmissions")) || [];
+
+            // Add the new submission to the array
+            submissions.push(formData);
+
+            // Save the updated submissions array back to localStorage
+            localStorage.setItem("insuranceFormSubmissions", JSON.stringify(submissions));
+
+            // Optionally, you can display a confirmation message
+            alert("Your form submission has been saved.");
+
+            // You can redirect the user to another page or do any other necessary action here
+        });
+    </script>
+</body>
+</html>
